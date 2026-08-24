@@ -352,3 +352,27 @@ public class StaticGenericExample
     }
 }
 #endregion
+#region Question 19
+// Q19: How can you inherit from a generic class?
+
+// Explanation:
+// You can inherit from a generic class in two main ways:
+// 1. Pass a specific type argument to the base generic class.
+// 2. Keep the derived class generic and pass its type parameter to the base class.
+
+// Base Generic Class
+public class BaseRepository<T>
+{
+    public void Save(T item) { }
+}
+
+// Case 1: Non-generic derived class specifying the type (e.g., string)
+public class StringRepository : BaseRepository<string>
+{
+}
+
+// Case 2: Generic derived class passing its type parameter T
+public class CustomRepository<T> : BaseRepository<T>
+{
+}
+#endregion
