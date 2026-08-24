@@ -76,3 +76,18 @@ public class Helper
     }
 }
 #endregion
+#region Question 5
+// Q5: Write a generic method FindMax<T> that finds maximum value
+
+// Explanation:
+// We use the 'where T : IComparable<T>' constraint to ensure that 
+// the type T supports comparison (CompareTo method).
+
+public class MathHelper
+{
+    public static T FindMax<T>(T a, T b) where T : IComparable<T>
+    {
+        return a.CompareTo(b) > 0 ? a : b;
+    }
+}
+#endregion
