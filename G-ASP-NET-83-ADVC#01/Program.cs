@@ -60,4 +60,19 @@
         }
     }
     #endregion
+
 }
+#region Question 4
+// Q4: What is a generic method? Write Swap<T> method.
+
+
+public class Helper
+{
+    public static void Swap<T>(ref T a, ref T b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    }
+}
+#endregion
