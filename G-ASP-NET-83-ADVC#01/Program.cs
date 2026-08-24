@@ -1,4 +1,7 @@
-﻿namespace G_ASP_NET_83_ADVC_01
+﻿
+
+
+namespace G_ASP_NET_83_ADVC_01
 {
     internal class Program
     {
@@ -238,5 +241,26 @@ public class Utility<T>
         return default(T); // Returns null for class, 0 for int, false for bool, etc.
     }
 }
-#endregio
+#endregion
+#region Question 14
+// Q14: What is the difference between non-generic and generic collections? Write an example.
 
+// Explanation:
+// Non-generic collections (like ArrayList) store elements as 'object', which lacks type safety 
+// and causes performance overhead due to Boxing/Unboxing.
+// Generic collections (like List<T>) enforce type safety at compile time and offer better performance.
+
+public class CollectionExample
+{
+    public void Demonstrate()
+    {
+        // Non-Generic Collection
+        System.Collections.ArrayList nonGenericList = new System.Collections.ArrayList();
+        nonGenericList.Add(10); // Boxing occurs
+
+        // Generic Collection
+        System.Collections.Generic.List<int> genericList = new System.Collections.Generic.List<int>();
+        genericList.Add(10); // Type-safe, no boxing
+    }
+}
+#endregion
