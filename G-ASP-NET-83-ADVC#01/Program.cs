@@ -106,3 +106,20 @@ public interface IRepository<T>
     void Delete(T entity);
 }
 #endregion
+#region Question 7
+// Q7: What is the 'struct' constraint? Write an example.
+
+// Explanation:
+// The 'struct' constraint restricts the type parameter T to be a Value Type 
+// (such as int, double, bool, or custom structs). It cannot be a Reference Type.
+
+public class ValueCalculator<T> where T : struct
+{
+    public T Value { get; set; }
+
+    public ValueCalculator(T value)
+    {
+        Value = value;
+    }
+}
+#endregion
