@@ -176,3 +176,24 @@ public class EntityRepository<T> where T : IEntity
     }
 }
 #endregion
+#region Question 11
+// Q11: What is the base class constraint? Write an example.
+
+// Explanation:
+// The base class constraint restricts the type parameter T to be 
+// or derive from a specific base class. This ensures T inherits all properties 
+// and methods defined in that base class.
+
+public class Person
+{
+    public string Name { get; set; }
+}
+
+public class PersonPrinter<T> where T : Person
+{
+    public void PrintName(T person)
+    {
+        Console.WriteLine(person.Name);
+    }
+}
+#endregion
