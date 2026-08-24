@@ -140,3 +140,18 @@ public class DataManager<T> where T : class
     }
 }
 #endregion
+#region Question 9
+// Q9: What is the 'new()' constraint? Write an example.
+
+// Explanation:
+// The 'new()' constraint restricts the type parameter T to have a public parameterless constructor. 
+// This allows the generic class to instantiate new objects of type T using 'new T()'.
+
+public class Factory<T> where T : new()
+{
+    public T CreateInstance()
+    {
+        return new T();
+    }
+}
+#endregion
