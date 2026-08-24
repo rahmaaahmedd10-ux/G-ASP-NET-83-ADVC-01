@@ -40,4 +40,24 @@
         }
     }
     #endregion
+    #region Question 3
+    // Q3: What are multiple type parameters? Write Pair<TKey, TValue>.
+
+    // Explanation:
+    // Multiple type parameters allow a generic class or method to accept 
+    // more than one placeholder type (e.g., <TKey, TValue>), enabling flexibility 
+    // when working with data structures that hold pairs of different data types.
+
+    public class Pair<TKey, TValue>
+    {
+        public TKey Key { get; set; }
+        public TValue Value { get; set; }
+
+        public Pair(TKey key, TValue value)
+        {
+            Key = key;
+            Value = value;
+        }
+    }
+    #endregion
 }
