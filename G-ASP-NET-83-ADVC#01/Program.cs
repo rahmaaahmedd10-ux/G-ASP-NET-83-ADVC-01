@@ -223,5 +223,20 @@ public class Processor<T> where T : BaseEntity, IPrintable, new()
     }
 }
 #endregion
+#region Question 13
+// Q13: What is default(T) in Generics? Write an example.
 
+// Explanation:
+// The 'default' keyword returns the default value for a given type parameter T.
+// For Reference Types (class), it returns null.
+// For Value Types (struct/int/bool), it returns zero or the zero-initialized structure.
+
+public class Utility<T>
+{
+    public T GetDefaultValue()
+    {
+        return default(T); // Returns null for class, 0 for int, false for bool, etc.
+    }
+}
+#endregio
 
