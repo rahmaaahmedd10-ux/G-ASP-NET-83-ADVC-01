@@ -123,3 +123,20 @@ public class ValueCalculator<T> where T : struct
     }
 }
 #endregion
+#region Question 8
+// Q8: What is the 'class' constraint? Write an example.
+
+// Explanation:
+// The 'class' constraint restricts the type parameter T to be a Reference Type 
+// (such as class, interface, delegate, or array). It cannot be a Value Type.
+
+public class DataManager<T> where T : class
+{
+    private T _data;
+
+    public void Save(T data)
+    {
+        _data = data;
+    }
+}
+#endregion
