@@ -283,3 +283,28 @@ public interface IContravariant<in T>
     void ProcessItem(T item);
 }
 #endregion
+
+#region Question 16
+// Q16: What is contravariance? Explain the 'in' keyword.
+
+// Explanation:
+// Contravariance allows a generic interface or delegate to accept a less derived (base) type 
+// than originally specified. 
+// The 'in' keyword marks the generic type parameter as contravariant, meaning it can ONLY be 
+// used as an INPUT parameter (method argument), not as a return type.
+
+public interface IReceiver<in T>
+{
+    void Process(T item); // T is used as input ONLY
+}
+
+public class Example
+{
+    public void Test()
+    {
+        // Object is a base type of string. Contravariance allows this assignment:
+        IReceiver<object> objectReceiver = null!;
+        IReceiver<string> stringReceiver = objectReceiver;
+    }
+}
+#endregion
