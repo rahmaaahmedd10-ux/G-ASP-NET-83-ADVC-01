@@ -155,3 +155,24 @@ public class Factory<T> where T : new()
     }
 }
 #endregion
+#region Question 10
+// Q10: What is the interface constraint? Write an example.
+
+// Explanation:
+// The interface constraint restricts the type parameter T to only accept 
+// types that implement a specific interface. This guarantees that T 
+// contains the methods declared in that interface.
+
+public interface IEntity
+{
+    int Id { get; set; }
+}
+
+public class EntityRepository<T> where T : IEntity
+{
+    public void DisplayId(T entity)
+    {
+        Console.WriteLine(entity.Id);
+    }
+}
+#endregion
