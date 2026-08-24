@@ -308,3 +308,47 @@ public class Example
     }
 }
 #endregion
+#region Question 17
+// Q17: What is the difference between covariance and contravariance?
+
+// Explanation:
+// 1. Covariance (out): Allows a method to return a more derived type. Used for OUTPUT only.
+// 2. Contravariance (in): Allows a method to accept a less derived (base) type. Used for INPUT only.
+
+// Covariance Example (out -> Output)
+public interface ICovariant2<out T>
+{
+    T GetItem();
+}
+
+// Contravariance Example (in -> Input)
+public interface IContravariant2<in T>
+{
+    void SetItem(T item);
+}
+#endregion
+#region Question 18
+// Q18: How do static members work in generic types?
+
+// Explanation:
+// Static members in a generic class are NOT shared across different type arguments.
+// Each closed generic type (e.g., GenericClass<int> and GenericClass<string>) 
+// gets its own separate copy of the static field.
+
+public class GenericCounter<T>
+{
+    public static int Count = 0;
+}
+
+public class StaticGenericExample
+{
+    public void Demonstrate()
+    {
+        GenericCounter<int>.Count = 5;
+        GenericCounter<string>.Count = 10;
+
+        // GenericCounter<int>.Count is still 5
+        // GenericCounter<string>.Count is 10
+    }
+}
+#endregion
