@@ -264,3 +264,22 @@ public class CollectionExample
     }
 }
 #endregion
+#region Question 15
+// Q15: What is Covariance and Contravariance in Generics? Write an example.
+
+// Explanation:
+// Covariance (out) allows returning a more derived type than defined in the generic parameter.
+// Contravariance (in) allows accepting a less derived (base) type as a method argument.
+
+// Covariance example using 'out'
+public interface ICovariant<out T>
+{
+    T GetItem();
+}
+
+// Contravariance example using 'in'
+public interface IContravariant<in T>
+{
+    void ProcessItem(T item);
+}
+#endregion
