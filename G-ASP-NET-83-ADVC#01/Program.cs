@@ -376,3 +376,56 @@ public class CustomRepository<T> : BaseRepository<T>
 {
 }
 #endregion
+
+#region Question 20
+// Q20: Complete Exercise - Create a generic Cache<TKey, TValue> with Add, Get, Remove, Contains, and expiration support.
+
+
+public class CacheItem<TValue>
+{
+    public TValue Value { get; }
+    public DateTime ExpirationTime { get; }
+
+    public CacheItem(TValue value, TimeSpan timeToLive)
+    {
+        Value = value;
+        ExpirationTime = DateTime.Now.Add(timeToLive);
+    }
+
+    public bool IsExpired => DateTime.Now > ExpirationTime;
+}
+
+public class Cache<TKey, TValue> where TKey : notnull
+{
+    private readonly Dictionary<TKey, CacheItem<TValue>> _cache = new Dictionary<TKey, CacheItem<TValue>>();
+
+    public void Add(TKey key, TValue value, TimeSpan timeToLive)
+    {
+        _cache[key] = new CacheItem<TValue>(value, timeToLive);
+    }
+
+    public bool Contains(TKey key)
+    {
+        if (_cache.TryGetValue(key, out var item))
+        {
+            if (!item.IsExpired) return true;
+            _cache.Remove(key); // Auto-remove if expired
+        }
+        return false;
+    }
+
+    public TValue Get(TKey key)
+    {
+        if (Contains(key))
+        {
+            return _cache[key].Value;
+        }
+        throw new KeyNotFoundException("Key not found or expired.");
+    }
+
+    public bool Remove(TKey key)
+    {
+        return _cache.Remove(key);
+    }
+}
+#endregion
