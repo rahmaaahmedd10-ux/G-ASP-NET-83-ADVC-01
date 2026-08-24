@@ -197,3 +197,31 @@ public class PersonPrinter<T> where T : Person
     }
 }
 #endregion
+#region Question 12
+// Q12: How to combine multiple generic constraints? Write an example.
+
+// Explanation:
+// Multiple constraints can be combined using the 'where' keyword.
+// The order must be: Base Class first, then Interfaces, then new() constructor last.
+
+public interface IPrintable
+{
+    void Print();
+}
+
+public class BaseEntity
+{
+    public int Id { get; set; }
+}
+
+public class Processor<T> where T : BaseEntity, IPrintable, new()
+{
+    public void Process(T item)
+    {
+        Console.WriteLine($"Processing ID: {item.Id}");
+        item.Print();
+    }
+}
+#endregion
+
+
